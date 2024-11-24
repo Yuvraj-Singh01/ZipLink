@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class = 'middle'>
+
+    <div class='midbutton'>
+        <a href="">
+            <div class="url-but">
+                <img src = "{% static 'White icon.png' %}">
+                <p>Shorten URL</p>
+            </div>
+        </a>
+        <a href="">
+            <div class = "qr-but">
+                <img src = "">
+                <p>QR Code</p>
+            </div>
+        </a>
+    </div>
+    
+    <div class='urlshort'>
+        <p>Enter your link here</p>
+    
+    </div>
+
+</div>
+
+<div class = 'info'>
+
+    <div class = 'urlbox'>
+        
+    </div>
+
+    <div class = 'qrbox'>
+    
+    </div>
+
+</div>
+
+{% endblock %}
