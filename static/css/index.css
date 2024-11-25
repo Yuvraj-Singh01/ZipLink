@@ -62,72 +62,7 @@ footer{
 
 .content{
     display: flex;
-    justify-content: center;
-}
-
-
-.middle{
-    height: 500px;
-    width: 1100px;
-    background-color: #C8B6FF;
-    margin: 100px 0px;
-    border-radius: 20px;
-    display: flex;
     flex-direction: column;
-}
-
-.midbutton{
-    height: 100px;
-    display: flex;
-    margin-top: 70px;
-    flex-direction: row;
-    gap: 20px;
-}
-
-.url-but, .qr-but{
-    background-color: #8C7AC3;
-    width: 200px;
-    height: 50px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-}
-
-.url-but{
-    margin-left: 350px;
-}
-
-.url-but img{
-    height: 50px;
-    width: 70px;
-}
-
-.url-but p, .qr-but p{
-    color: white;
-    font-family: 'Inter';
-    font-weight: bold;
-}
-
-.midbutton a{
-    text-decoration: none;
-}
-
-.qr-but:hover {
-    background-color: white;
-}
-
-.qr-but:hover p {
-    color: #C8B6FF;
-}
-
-.urlshort p{
-    color: #6E5E9F;
-    font-family: 'Inter';
-    font-size: 40px;
-    margin-top: -10px;
-    text-align: center;
-    font-weight: bold;
 }
 

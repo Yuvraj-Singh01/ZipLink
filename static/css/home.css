@@ -1,0 +1,140 @@
+.middle{
+    height: 500px;
+    width: 1100px;
+    background-color: #C8B6FF;
+    margin: 100px 0px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.midbutton{
+    height: 100px;
+    display: flex;
+    margin-top: 70px;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.url-but, .qr-but{
+    background-color: #8C7AC3;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.url-but{
+    margin-left: 350px;
+}
+
+.url-but img{
+    height: 50px;
+    width: 50px;
+}
+
+.url-but p, .qr-but p{
+    color: white;
+    font-family: 'Inter';
+    font-weight: bold;
+}
+
+.midbutton a{
+    text-decoration: none;
+}
+
+.qr-but:hover {
+    background-color: white;
+}
+
+.qr-but:hover p {
+    color: #C8B6FF;
+}
+
+.url-but:hover {
+    background-color: white;
+}
+
+.url-but:hover p {
+    color: #C8B6FF;
+}
+
+.urlshort p{
+    color: #6E5E9F;
+    font-family: 'Inter';
+    font-size: 40px;
+    margin-top: -10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+.urlbox, .qrbox{
+    height: 380px;
+    width: 500px;
+    border: 1px solid #C8B6FF;
+    border-radius: 15px;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.innerbox{
+    background-color: #C8B6FF;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin-top: -40px;
+    border-radius: 12px;
+}
+
+.urlbox img, .qrbox img{
+    height: 300px;
+    width: 300px;
+    margin-top: -40px;
+}
+
+.innerbox p{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    line-height: 0.5;
+}
+
+.innerbox ul,li{
+
+    list-style-position: inside;
+
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    line-height: 1.5;
+    
+    font-weight: bold;
+}
+
+#bigHeading{
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+#subHeading{
+    font-size: 18px;
+    font-style: italic;
+}
+
+#listPoints{
+    line-height: 1;
+}
