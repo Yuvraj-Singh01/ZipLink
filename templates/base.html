@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='{% static 'css/base.css' %}'>
+    <link rel='stylesheet' href='{% static 'css/home.css' %}'>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+</head>
+<body>
+    <div class='header'>
+        <div class='logo'>
+            <p>ZIPLINK</p>
+        </div>
+        <nav class="navbar">
+            <a href="">Home</a>
+            <a href="">Contact</a>
+            <a href="" class="button">Login</a>
+        </nav>
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer>
+        <p>© Ziplink 2024.All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
