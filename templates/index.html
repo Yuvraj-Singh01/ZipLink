@@ -1,89 +1,76 @@
-{% extends 'base.html' %}
-{% load static %}
+<!-- prettier-ignore -->
+{% extends 'base.html' %} 
+{% load static %} 
 
 {% block content %}
 
-<div class = 'middle'>
-
-    <div class='midbutton'>
+<div class="middle">
+    <div class="midbutton">
         <a href="">
             <div class="url-but">
-                <img src = "{% static 'White icon.png' %}">
+                <img src="{% static 'White icon.png' %}" alt="Shorten Icon" />
                 <p>Shorten URL</p>
             </div>
         </a>
         <a href="">
-            <div class = "qr-but">
-                <img src = "">
+            <div class="qr-but">
+                <!-- ADD IMAGE -->
+                <img src="" alt="QR Code Icon" />
                 <p>QR Code</p>
             </div>
         </a>
     </div>
-    
-    <div class='urlshort'>
+
+    <div class="urlshort" id="urlshort">
         <p>Enter your link here</p>
 
-        <form class = "formURL" action = "{% url 'shorten_url' %}" method = "POST">
-
+        <form class="formURL" action="{% url 'shorten_url' %}" method="POST">
             {% csrf_token %}
-        
-            <input type = "url" id = "url-input" name = "url" placeholder = "Enter your URL here" required>
-            <button type = "submit" id = "shortenbutton">Shorten</button>
-
+            <input type="url" id="url-input" name="url" placeholder="Enter your URL here" required />
+            <button type="submit" id="shortenbutton">Shorten</button>
         </form>
 
         {% if shortened_url %}
-
-        <div class = "newLink">
-            
-            <p id = "newlinktext">Your link is ready!</p>
-
+        <div class="newLink">
+            <p id="newlinktext">Your link is ready!</p>
             <div>
-                <p>{{ shortened_url }}</p>
+                <a href="{{ shortened_url }}" target="_blank">{{ shortened_url }}</a>
             </div>
-
         </div>
-    
         {% endif %}
-
+        <!-- prettier-ignore -->
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
     </div>
-
 </div>
 
-<div class = 'info'>
-
-    <div class = 'urlbox'>
-        <img src = "{% static 'Purple url short.png' %}">
-        <div class = "innerbox">
-            <p id = "bigHeading"> 
-                URL SHORTENER
-            </p>
-            <p id = "subHeading">
-                Shorten. Share. Simplify.
-            </p>
-            <ul id = "listPoints">
+<div class="info">
+    <div class="urlbox">
+        <img src="{% static 'Purple url short.png' %}" alt="URL Shortener Icon" />
+        <div class="innerbox">
+            <p id="bigHeading">URL SHORTENER</p>
+            <p id="subHeading">Shorten. Share. Simplify.</p>
+            <ul id="listPoints">
                 <li>Simplify Long URLs</li>
                 <li>Track Performance</li>
             </ul>
         </div>
     </div>
 
-    <div class = 'qrbox'>
-        <img src = "{% static 'Purple url short.png' %}">
-        <div class = "innerbox">
-            <p id = "bigHeading"> 
-                QR CODE GENERATOR
-            </p>
-            <p id = "subHeading">
-                Scan the future, instantly. 
-            </p>
-            <ul id = "listPoints">
+    <div class="qrbox" id="qrbox">
+        <img src="{% static 'Purple url short.png' %}" alt="QR Code Generator Icon" />
+        <div class="innerbox">
+            <p id="bigHeading">QR CODE GENERATOR</p>
+            <p id="subHeading">Scan the future, instantly.</p>
+            <ul id="listPoints">
                 <li>Custom Design</li>
                 <li>High Quality Output</li>
             </ul>
         </div>
     </div>
-
 </div>
 
 {% endblock %}
