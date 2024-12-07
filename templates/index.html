@@ -1,31 +1,91 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Home</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='{% static 'css/index.css' %}'>
-    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-</head>
-<body>
-    <div class='header'>
-        <div class='logo'>
-            <p>ZIPLINK</p>
-        </div>
-        <nav class="navbar">
-            <a href="">Home</a>
-            <a href="">Contact</a>
-            <a href="" class="button">Login</a>
-        </nav>
-    </div>
-    <div class="content">
-        {% block content %}
-        {% endblock %}
-    </div>
-    <footer>
-        <p>© Ziplink 2024.All rights reserved.</p>
-    </footer>
 
-</body>
-</html>
+{% block content %}
+
+<div class = 'middle'>
+
+    <div class='midbutton'>
+        <a href="">
+            <div class="url-but">
+                <img src = "{% static 'White icon.png' %}">
+                <p>Shorten URL</p>
+            </div>
+        </a>
+        <a href="">
+            <div class = "qr-but">
+                <img src = "">
+                <p>QR Code</p>
+            </div>
+        </a>
+    </div>
+    
+    <div class='urlshort'>
+        <p>Enter your link here</p>
+
+        <form class = "formURL" action = "{% url 'shorten_url' %}" method = "POST" autocomplete="off">
+
+            {% csrf_token %}
+        
+            <input type = "url" id = "url-input" name = "url" placeholder = "Enter your URL here" required>
+            <button type = "submit" id = "shortenbutton">Shorten</button>
+
+        </form>
+
+        {% if shortened_url %}
+
+        <div class = "newLink">
+            
+            <p id = "newlinktext">Your link is ready!</p>
+
+            <div>
+                <p>{{ shortened_url }}</p>
+            </div>
+
+        </div>
+    
+        {% endif %}
+
+    </div>
+
+</div>
+
+<div class = 'info'>
+
+    <div class = 'urlbox'>
+        <img src = "{% static 'Purple url short.png' %}">
+        <div class = "innerbox">
+            <p id = "bigHeading"> 
+                URL SHORTENER
+            </p>
+            <p id = "subHeading">
+                Shorten. Share. Simplify.
+            </p>
+            <ul id = "listPoints">
+                <li>Simplify Long URLs</li>
+                <li>Track Performance</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = 'qrbox'>
+        <img src = "{% static 'Purple url short.png' %}">
+        <div class = "innerbox">
+            <p id = "bigHeading"> 
+                QR CODE GENERATOR
+            </p>
+            <p id = "subHeading">
+                Scan the future, instantly. 
+            </p>
+            <ul id = "listPoints">
+                <li>Custom Design</li>
+                <li>High Quality Output</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
