@@ -8,7 +8,7 @@
     <div class="midbutton">
         <a href="">
             <div class="url-but">
-                <img src="{% static 'White icon.png' %}" alt="Shorten Icon" />
+                <img src='{% static 'White icon.png' %}' alt="Shorten Icon" />
                 <p>Shorten URL</p>
             </div>
         </a>
@@ -24,7 +24,7 @@
     <div class="urlshort" id="urlshort">
         <p>Enter your link here</p>
 
-        <form class="formURL" action="{% url 'shorten_url' %}" method="POST">
+        <form class="formURL" action="{% url "shorten_url" %}" method="POST">
             {% csrf_token %}
             <input type="url" id="url-input" name="url" placeholder="Enter your URL here" required />
             <button type="submit" id="shortenbutton">Shorten</button>
