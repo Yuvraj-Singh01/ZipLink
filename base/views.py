@@ -42,3 +42,7 @@ def shorten_url(request):
         else:
             return render(request, 'index.html', {'error': "Invalid URL"})
     return render(request, 'index.html')
+
+def redirect_to_original(request, shortened_id):
+    entry = get_object_or_404(ShortenedURL, shortened_id = shortened_id)
+    return HttpResponseRedirect(entry.original_url)
