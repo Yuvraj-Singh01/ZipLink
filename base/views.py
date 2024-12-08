@@ -9,11 +9,8 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import ShortenedURL
 from .utils import encode_to_base62
 
-# Create your views here.
-
 def index(request):
     return render(request, 'index.html')
-
 
 def loginUser(request):
     user=None

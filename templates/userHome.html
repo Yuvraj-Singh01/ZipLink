@@ -1,11 +1,70 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <p>Balls</p>
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Back</title>
+    <link rel='stylesheet' href='{% static 'css/userHome.css' %}'> 
+    <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <p>{{user.username}}</p>
+        </div>
+        <nav class="navbar">
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'logout' %}" class="button">Logout</a>
+        </nav>
+    </div>
+    <div class="content">
+        <div class="middle">
+            <div class="midbutton">
+                <a href="">
+                    <div class="url-but">
+                        <img src='{% static 'White icon.png' %}' alt="Shorten Icon" />
+                        <p>Shorten URL</p>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="qr-but">
+                        <p>QR Code</p>
+                    </div>
+                </a>
+            </div>
+        
+            <div class="urlshort" id="urlshort">
+                <p>Enter your link here</p>
+        
+                <form class="formURL" action="{% url "shorten_url" %}" method="POST">
+                    {% csrf_token %}
+                    <input type="url" id="url-input" name="url" placeholder="Enter your URL here" required />
+                    <button type="submit" id="shortenbutton">Shorten</button>
+                </form>
+        
+                {% if shortened_url %}
+                <div class="newLink">
+                    <p id="newlinktext">Your link is ready!</p>
+                    <div class = "innerNewLink">
+                        <a href="{{ shortened_url }}" target="_blank">{{ shortened_url }}</a>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- prettier-ignore -->
+                {% if error %}
+                <div class="error-message">
+                    <p>{{ error }}</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <p>© Ziplink 2024. All rights reserved.</p>
+    </footer>
+
+</body>
 </html>

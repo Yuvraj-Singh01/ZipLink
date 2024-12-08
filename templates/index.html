@@ -6,7 +6,7 @@
 
 <div class="middle">
     <div class="midbutton">
-        <a href="">
+        <a href="{% url 'index' %}">
             <div class="url-but">
                 <img src='{% static 'White icon.png' %}' alt="Shorten Icon" />
                 <p>Shorten URL</p>
@@ -14,8 +14,6 @@
         </a>
         <a href="">
             <div class="qr-but">
-                <!-- ADD IMAGE -->
-                <img src="" alt="QR Code Icon" />
                 <p>QR Code</p>
             </div>
         </a>
@@ -33,7 +31,7 @@
         {% if shortened_url %}
         <div class="newLink">
             <p id="newlinktext">Your link is ready!</p>
-            <div>
+            <div class = "innerNewLink">
                 <a href="{{ shortened_url }}" target="_blank">{{ shortened_url }}</a>
             </div>
         </div>
