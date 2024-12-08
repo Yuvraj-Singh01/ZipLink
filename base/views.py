@@ -14,24 +14,28 @@ from .utils import encode_to_base62
 def index(request):
     return render(request, 'index.html')
 
-def user_login(request):
-    if request.method == "POST":
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                messages.success(request, f"Welcome back, {username}!")
-                return redirect('index')  # Redirect to your home page or dashboard
-            else:
-                messages.error(request, "Invalid username or password.")
-        else:
-            messages.error(request, "Invalid username or password.")
+
+def loginUser(request):
+    user=None
+    if request.method=="POST":
+        username=request.POST.get('username')
+        password=request.POST.get('new-password')
+        print(username,password)
+        user = authenticate(username=username, password=password)
+    if user is not None:
+        print("Bao")
+        login(request, user)
+        return redirect("userHome")
     else:
-        form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+        messages.error(request, "Wrong username or password. Please try again.")
+        return render(request, 'login.html')
+    
+def logoutUser(request):
+    logout(request)
+    return redirect(reverse_lazy("index"))
+
+def userHome(request):
+    return render(request, 'userHome.html')
 
 def shorten_url(request):
     if request.method == "POST":
@@ -53,7 +57,6 @@ def shorten_url(request):
 
 
 def redirect_to_original(request, shortened_id):
-    # Find the corresponding original URL
     entry = get_object_or_404(ShortenedURL, shortened_id=shortened_id)
     return HttpResponseRedirect(entry.original_url)
 

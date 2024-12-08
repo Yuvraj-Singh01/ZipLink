@@ -16,19 +16,16 @@
                 <p id = "mainHead">Log In</p>
                     <div class = "loginBox">
             
-                            <form method="POST">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button type="submit">Login</button>
-                            </form>
-                            {% if messages %}
-                            <ul>
-                                {% for message in messages %}
-                                <li>{{ message }}</li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
-
+                        <form method="post" action="/login/">
+                            {% csrf_token %}
+                                <label id="username" for="username">Username </label>
+                                <input id="usernamebutton" name="username" type="text" required />
+                
+                                <label id="password" for="new-password">Password</label>
+                                <input id="passwordbutton" name="new-password" type="password" required />
+                                
+                                <button type="submit" class="loginbutton">Log in</button>
+                        </form>
                     </div>
             </div>
         </div>
