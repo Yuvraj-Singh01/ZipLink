@@ -32,9 +32,19 @@
     margin-left: 350px;
 }
 
-.url-but img {
+.qr-but {
+    gap:10px;
+}
+
+.url-but img{
     height: 50px;
     width: 50px;
+}
+
+.qr-but img{
+    margin-left: -4px;
+    height: 30px;
+    width: 30px;
 }
 
 .url-but p,
@@ -103,11 +113,17 @@
     border-radius: 12px;
 }
 
-.urlbox img,
-.qrbox img {
+.urlbox img{
     height: 300px;
     width: 300px;
     margin-top: -40px;
+}
+
+.qrbox img {
+    margin-top: 20px;
+    height: 190px;
+    width: 190px;
+    margin-bottom: 47px;
 }
 
 .innerbox p {
