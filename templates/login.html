@@ -1,20 +1,42 @@
-<!-- prettier-ignore -->
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/loginpage.css' %}"> 
+    <link href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet" />
+</head>
 
-{% block content %}
-<h2>Login</h2>
-<form method="POST">
-    <!-- prettier-ignore -->
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
-{% if messages %}
-<ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-<!-- prettier-ignore -->
-{% endif %}
-{% endblock %}
+<body>
+    
+    <div class = "mainBody">
+        <div class = "sideBox">
+            <div class = "outerBox">
+                <p id = "mainHead">Log In</p>
+                    <div class = "loginBox">
+            
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit">Login</button>
+                            </form>
+                            {% if messages %}
+                            <ul>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+
+                    </div>
+            </div>
+        </div>
+
+        <div class = "sideImg">
+            <img src='{% static 'login img.png' %}' alt="Shorten Icon" />
+        </div>
+    </div>
+
+</body>
+</html>
