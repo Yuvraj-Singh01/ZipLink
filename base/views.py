@@ -31,9 +31,6 @@ def logoutUser(request):
     logout(request)
     return redirect(reverse_lazy("index"))
 
-def userHome(request):
-    return render(request, 'userHome.html')
-
 def shorten_url(request):
     if request.method == "POST":
         original_url = request.POST.get('url')
@@ -45,7 +42,7 @@ def shorten_url(request):
                 entry.save()
 
             # Construct the shortened URL
-            base_url = request.build_absolute_uri('/')  # Gets the base URL (e.g., http://127.0.0.1:8000/)
+            base_url = request.build_absolute_uri('/')
             shortened_url = f"{base_url}{entry.shortened_id}/"
             return render(request, 'index.html', {'shortened_url': shortened_url})
         else:
