@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="qr-container">
+    <!-- Left side: Input section -->
+    <div class="qr-input">
+        <h4>Enter your link here</h4>
+        <form class="formQR" action="{% url 'generated_qr' %}" method="POST">
+            {% csrf_token %}
+            <input type="url" id="link-input" name="data" placeholder="Enter your URL here" required />
+            <button type="submit" id="generate-button">Generate QR</button>
+        </form>
+    </div>
+
+
+    <div class="qr-display">
+        {% if qr_image_url %}
+        <img src="{{ qr_image_url }}" alt="Generated QR Code" />
+        {% endif %}
+        
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -8,6 +8,7 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import ShortenedURL
 from .utils import encode_to_base62
+from qrcode import *
 
 def index(request):
     return render(request, 'index.html')
@@ -59,3 +60,22 @@ def redirect_to_original(request, shortened_id):
 
 def userHome(request):
     return render(request, 'userHome.html')
+
+def qr_page(request):
+    return render(request, 'QR.html')
+
+def generated_qr(request):
+    data = None
+    qr_image_url = None
+
+    if request.method == 'POST':
+        data = request.POST.get('data')
+
+        if data:
+            # Generate the QR code image
+            img = make(data)
+            qr_image_path = 'media/QR_TestImage.png'  # Save the image in the media folder
+            img.save(qr_image_path)
+            qr_image_url = '/' + qr_image_path  # Construct the URL for the image
+
+    return render(request, 'QR.html', {'data': data, 'qr_image_url': qr_image_url})
